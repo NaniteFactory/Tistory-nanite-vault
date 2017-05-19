@@ -159,7 +159,6 @@
 									[##_article_rep_date_##]
 								</div>
 							</div>
-						</s_index_article_rep>
 
 						<s_permalink_article_rep>
 							<div class="skin_view">
@@ -309,7 +308,7 @@
 												<legend class="screen_out">댓글쓰기 폼</legend>
 												<div class="reply_write ">
 													<label for="[##_rp_input_comment_##]" class="lab_write"></label>
-													<textarea id="[##_rp_input_comment_##]" name="[##_rp_input_comment_##]" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="1"></textarea>
+													<textarea id="[##_rp_input_comment_##]" name="[##_rp_input_comment_##]" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해 주세요" tabindex="1"></textarea>
 												</div>
 												<div class="reply_writer">
 													<s_rp_member>
@@ -385,7 +384,7 @@
 								<fieldset class="fld_reply">
 									<legend class="screen_out">댓글쓰기 폼</legend>
 									<div class="reply_write "><!-- 클릭시 'on_box' 추가 -->
-										<textarea name="[##_guest_textarea_body_##]" class="tf_reply" placeholder="여러분의 소중한 메시지를 남겨주세요" tabindex="1"></textarea>
+										<textarea name="[##_guest_textarea_body_##]" class="tf_reply" placeholder="여러분의 소중한 메시지를 남겨 주세요" tabindex="1"></textarea>
 										<label for="[##_guest_textarea_body_##]" class="lab_write"></label>
 									</div>
 									<div class="reply_writer">
@@ -607,18 +606,43 @@
 		</div>
 		<hr class="hide">
 		<div id="dkFoot" role="contentinfo" class="area_foot">
-			Blog is powered by
-			<em class="emph_t">Tistory</em> / Designed by
-			<em class="emph_t">Tistory</em>
+			Blog powered by
+			<em class="emph_t">
+				<a href="http://www.tistory.com/" onclick="window.open(this.href); return false">[##_tattertools_name_##] [##_tattertools_version_##]</a>
+			</em>
+			/ Designed by
+			<em class="emph_t">
+				<a href="http://nanite-vault.tistory.com">코코넛냠냠</a>
+			</em>
 		</div>
 	</div>
 </s_t3>
+
+<!-- BackToTop Button: 컨텐트 위에 표시하기 위해서는 컨텐트가 정의된 곳 뒤에 정의해야 함 -->
+<a href="javascript:void(0);" id="scroll" title="Scroll to Top">Top<span></span></a> 
 
 <script src="./images/script.js"></script>
 <script>
 (function($) {
 	$.Area.init();
 })(jQuery);
+
+// 스크롤 버튼
+$(function() {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 100) {
+			$('#scroll').fadeIn();
+		} else {
+			$('#scroll').fadeOut();
+		}
+	});
+	$('#scroll').click(function() {
+		$("html, body").animate({
+			scrollTop: 0
+		}, 600);
+		return false;
+	});
+});
 </script>
 
 </body>
