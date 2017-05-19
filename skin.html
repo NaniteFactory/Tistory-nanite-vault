@@ -35,11 +35,13 @@
 						<span class="ico_skin ico_name"></span>
 					</button>
 					<ul class="list_name">
-						<li><a href="[##_owner_url_##]/entry/post" class="link_name">글쓰기</a></li>
-						<li><a href="[##_owner_url_##]" class="link_name">관리</a></li>
-						<li class="box_division"><a href="[##_taglog_link_##]" class="link_name">태그</a></li>
-						<li><a href="[##_guestbook_link_##]" class="link_name">방명록</a></li>
+						<li><a href="#" onclick="fnLoginToggle();" class="link_name tab_login_toggle"></a></li>
+						<li><a href="[##_blog_link_##]toolbar/popup/link/" onclick="window.open(this.href); return false" class="link_name">내 링크에 추가</a></li>
+						<li class="box_division"><a href="[##_guestbook_link_##]" class="link_name">방명록</a></li>
+						<li><a href="[##_taglog_link_##]" class="link_name">태그</a></li>
 						<li><a href="[##_rss_url_##]" class="link_name">RSS</a></li>
+						<li class="box_division"><a href="[##_owner_url_##]/entry/post" class="link_name">글쓰기</a></li>
+						<li><a href="[##_owner_url_##]" class="link_name">관리</a></li>
 					</ul>
 					<p class="txt_condition">[##_title_##]</p>
 				</div>
@@ -79,8 +81,19 @@
 					[##_category_list_##]
 
 					<ul class="menu_profile">
-						<li><a href="[##_guestbook_link_##]">방명록</a></li>
+						<li><a href="#" onclick="fnLoginToggle();" class="link_name tab_login_toggle"></a></li>
+						<li><a href="[##_blog_link_##]toolbar/popup/link/" onclick="window.open(this.href); return false" class="link_name">내 링크에 추가</a></li>
 					</ul>
+					<ul class="menu_profile">
+						<li><a href="[##_guestbook_link_##]">방명록</a></li>
+						<li><a href="[##_taglog_link_##]" class="link_name">태그</a></li>
+						<li><a href="[##_rss_url_##]" class="link_name">RSS</a></li>
+					</ul>
+					<ul class="menu_profile">
+						<li class="box_division"><a href="[##_owner_url_##]/entry/post" class="link_name">글쓰기</a></li>
+						<li><a href="[##_owner_url_##]" class="link_name">관리</a></li>
+					</ul>
+					
 				</div>
 			</div>
 		</div>
@@ -215,7 +228,7 @@
 										<s_ad_div>
 											<span class="my_edit">
 												<span class="txt_bar"></span><a href="[##_s_ad_m_link_##]" class="link_detail">수정</a>
-												<span class="txt_bar"></span><a href="#" onclick="[##_s_ad_s2_onclick_##]" class="link_detail">[##_s_ad_s1_label_##]</a>
+												<span class="txt_bar"></span><a href="#" onclick="[##_s_ad_s2_onclick_##]" class="link_detail">[##_s_ad_s1_label_##] 취소</a>
 												<span class="txt_bar"></span><a href="#" onclick="[##_s_ad_d_onclick_##]" class="link_detail">삭제</a>
 											</span>
 										</s_ad_div>
@@ -622,11 +635,26 @@
 <a href="javascript:void(0);" id="scroll" title="Scroll to Top">Top<span></span></a> 
 
 <script src="./images/script.js"></script>
+<script src="./images/autolink.js"></script>
 <script>
 (function($) {
 	$.Area.init();
 })(jQuery);
-
+// 로그인, 로그아웃 표시
+function fnLoginToggle() {};
+$(function() {
+	if ($.trim($('#ttMenubarInnerWrap').find('a.tt_menubar_link_tit').text()).indexOf('로그아웃') != -1) {
+		$('.tab_login_toggle').text('로그아웃');
+		fnLoginToggle = function() {
+			document.location.href = "https://www.tistory.com/auth/logout?redirectUrl=" + encodeURIComponent(window.location.href);
+		};
+	} else {
+		$('.tab_login_toggle').text('로그인');
+		fnLoginToggle = function() {
+			document.location.href = "https://www.tistory.com/auth/login?redirectUrl=" + encodeURIComponent(window.location.href);
+		};
+	}
+});
 // 스크롤 버튼
 $(function() {
 	$(window).scroll(function() {
@@ -642,6 +670,19 @@ $(function() {
 		}, 600);
 		return false;
 	});
+});
+// 각주 말풍선
+$(function() {
+	tistoryFootnote.showSuper = tistoryFootnote.show;
+	tistoryFootnote.show = function(anchor, entryId, noteId) {
+		this.showSuper(anchor, entryId, noteId);
+		var layer = document.getElementById("tistoryFootnoteLayer_" + entryId + "_" + noteId);
+		layer.style.color = "#000";
+	}
+});
+// 각주 자동링크
+$(function() {
+	autolink($('ol.footnotes'));
 });
 </script>
 
