@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /* reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0;outline:none}
 fieldset,img{border:0 none}
@@ -75,7 +75,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 .area_navi .list_cate ul li a { display:block;padding-left:17px;margin-bottom:12px;font-size:12px;height:17px }
 .area_navi .list_cate ul li.selected > a,
 .area_navi .list_cate ul li a:hover { text-decoration:underline;color:#FFF }
-.area_navi .list_cate .c_cnt, .area_navi .list_cate img { display:none }
+/*.area_navi .list_cate .c_cnt, .area_navi .list_cate img { display:none }*/
 .area_navi .list_cate ul li ul li ul { padding-bottom:6px; margin-top:-6px }
 .area_navi .list_cate ul li ul li ul li { padding-left:21px }
 .area_navi .list_cate ul li ul li ul li a { padding-left:0;margin-bottom:6px;font-size:12px;}
