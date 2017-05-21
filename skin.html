@@ -3,10 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width,target-densitydpi=medium-dpi">
 	<title>[##_page_title_##]</title>
 	<link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
-
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./images/font.css">
 
@@ -16,6 +15,13 @@
 	<!--[if gte IE 9]><!-->
 	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery-2.1.4.min.js"></script>
 	<!--<![endif]-->
+	
+	<script src="./images/jquery.cookie.js"></script>
+	<script>
+	if($.cookie("modeView") == "PC"){ // 모바일에서 PC화면으로 보기
+		$('meta[name=viewport]').attr('content', 'width=1024, user-scalable=yes');
+	}
+	</script>
 </head>
 
 <body id="[##_body_id_##]">
@@ -619,6 +625,7 @@
 		</div>
 		<hr class="hide">
 		<div id="dkFoot" role="contentinfo" class="area_foot">
+			<button id="ButtonModeView" class="emph_t">PC버전보기</button>
 			Blog powered by
 			<em class="emph_t">
 				<a href="http://www.tistory.com/" onclick="window.open(this.href); return false">[##_tattertools_name_##] [##_tattertools_version_##]</a>
@@ -685,18 +692,27 @@ $(function() {
 $(function() {
 	autolink($('ol.footnotes'));
 });
-// 각주 스크롤 위치
-$(function() {
-	var offset = $(':target').offset();
-	var scrollto = offset.top - 60; // minus fixed header height
-	$('html, body').animate({scrollTop:scrollto}, 0);
-});
 // 카테고리 스크롤바
 $(function(){
 	$(window).bind("load resize", function(){
 		var scheight = $(window).height()
 		$(".list_cate").css("max-height", scheight - 90);
 	});
+});
+// 푸터 모바일/PC버전보기 전환 버튼
+$(function(){
+	if(parseInt(screen.availWidth,10) > 820){ return; }
+	if( $.cookie("modeView") == "PC" ){
+		$("#ButtonModeView").css("display", "block").text("모바일버전보기").bind("click", function(){
+			$.cookie( "modeView", "Mobile" );
+			top.location.replace(document.location.href.replace(/#.*$/g, ""));
+		});
+	}else{
+		$("#ButtonModeView").css("display", "block").text("PC버전보기").bind("click", function(){
+			$.cookie( "modeView", "PC" );
+			top.location.replace(document.location.href.replace(/#.*$/g, ""));
+		});
+	}
 });
 </script>
 

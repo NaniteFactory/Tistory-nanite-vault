@@ -126,7 +126,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 .wrap_etc .list_keep{margin-top:10px}
 .wrap_etc .list_keep li{overflow:hidden;margin-bottom:8px;font-size:12px;color:#DCDAD5}
 .wrap_etc .link_keep{font-size:12px;color:#DCDAD5}
-.area_foot{height:50px;font-size:12px;line-height:50px;text-align:center;background-color:#3F3431;color:#DCDAD5}
+.area_foot{padding:15px 0 15px 0;font-size:12px;line-height:25px;text-align:center;background-color:#3F3431;color:#DCDAD5}
 
 /* 페이징 */
 .area_paging_simple { display:none }
@@ -341,7 +341,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 	.ico_close{display:inline-block;width:18px;height:18px;background-position:-50px -110px;vertical-align:middle}
 	/* 푸터 */
 	.wrap_etc{display:none}
-	.area_foot{height:42px;font-size:11px;line-height:42px;color:#DCDAD5}
+	.area_foot{font-size:11px;line-height:20px;color:#DCDAD5}
 	.area_foot .emph_t{font-weight:bold;color:#FFF;font-family:applesdgothicneo-bold}
 	/* 페이징  */
 	.area_paging_list { display:none }
@@ -581,3 +581,13 @@ sup.footnote>a>span:nth-child(2) {
 	display: initial !important;
 }
 */
+.area_foot #ButtonModeView {
+	padding: 4px 0 4px 0;
+	border: 1px solid #302724;
+	background-color: #D7C1A6;
+	color: #302724;
+	width: 100px;
+	margin: 0 auto;
+	display: none;
+	margin-bottom: 7px;
+}
