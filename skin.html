@@ -636,6 +636,7 @@
 
 <script src="./images/script.js"></script>
 <script src="./images/autolink.js"></script>
+<script src="./images/AnchorOffsetWithHeader.js"></script>
 <script>
 (function($) {
 	$.Area.init();
@@ -684,8 +685,20 @@ $(function() {
 $(function() {
 	autolink($('ol.footnotes'));
 });
+// 각주 스크롤 위치
+$(function() {
+	var offset = $(':target').offset();
+	var scrollto = offset.top - 60; // minus fixed header height
+	$('html, body').animate({scrollTop:scrollto}, 0);
+});
+// 카테고리 스크롤바
+$(function(){
+	$(window).bind("load resize", function(){
+		var scheight = $(window).height()
+		$(".list_cate").css("max-height", scheight - 90);
+	});
+});
 </script>
 
 </body>
-
 </html>
