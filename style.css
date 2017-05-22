@@ -549,12 +549,22 @@ only screen and (max-width:820px) and (min-resolution: 1.5dppx) {
 	-ms-filter: "alpha(opacity=100)";
 }
 ::selection {
-	color: #D7C1A6;
+	color: #FFF;
 	background: #D7C1A6;
 }
 ::-moz-selection {
-	color: #D7C1A6;
+	color: #FFF;
 	background: #D7C1A6;
+}
+html {
+	scrollbar-3dLight-Color: #E74C3C;
+	scrollbar-base-color: #E74C3C;
+	scrollbar-Face-Color: #E74C3C;
+	scrollbar-Highlight-Color: #E74C3C;
+	scrollbar-Shadow-Color: #E74C3C;
+	scrollbar-DarkShadow-Color: #E74C3C;
+	scrollbar-arrow-color: #E74C3C;
+	scrollbar-Track-Color: #D7C1A6;
 }
 ::-webkit-scrollbar {
 	width: 16px;
