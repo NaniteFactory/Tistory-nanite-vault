@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0;padding:0;outline:none}
 fieldset,img{border:0 none}
@@ -32,7 +32,7 @@ address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}
 .ico_focused {outline: 1px dotted #000;outline: -webkit-focus-ring-color auto 5px}
 
 /* 공통이미지 */
-.ico_skin{display:inline-block;overflow:hidden;font-size:0;line-height:0;background:url("images/ico_skin.gif") 0 0 no-repeat;text-indent:-9999px}
+.ico_skin{display:inline-block;overflow:hidden;font-size:0;line-height:0;background:url("images/ico_skin.png") 0 0 no-repeat;text-indent:-9999px}
 
 /* 헤더 */
 .wrap_skin{position:relative}
