@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 
 <head>
@@ -652,7 +652,7 @@
 // 로그인, 로그아웃 표시
 function fnLoginToggle() {};
 $(function() {
-	if ($.trim($('#ttMenubarInnerWrap').find('a.tt_menubar_link_tit').text()).indexOf('로그아웃') != -1) {
+	if (window.T.config.USER.name) {
 		$('.tab_login_toggle').text('로그아웃');
 		fnLoginToggle = function() {
 			document.location.href = "https://www.tistory.com/auth/logout?redirectUrl=" + encodeURIComponent(window.location.href);
